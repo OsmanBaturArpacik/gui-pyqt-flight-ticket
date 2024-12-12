@@ -32,19 +32,19 @@ if __name__ == '__main__':
             kisa = int(input("Kisa kenar: "))
             cevre = hesapla_dikdortgen_cevre(uzun, kisa)
             alan = hesapla_dikdortgen_alan(uzun, kisa)
-            # print(f"Dikdörtgenin cevresi: {cevre}\nDikdörtgenin alani: {alan}")
+            # print(form"Dikdörtgenin cevresi: {cevre}\nDikdörtgenin alani: {alan}")
         case 2:
             print("Kare kenar uzunluğunu giriniz:")
             kenar = int(input("Kenar: "))
             cevre = hesapla_kare_cevre(kenar)
             alan = hesapla_kare_alan(kenar)
-            # print(f"Karenin cevresi: {cevre}\nKarenin alani: {alan}")
+            # print(form"Karenin cevresi: {cevre}\nKarenin alani: {alan}")
         case 3:
             print("Dairenin Yaricap uzunlugunu giriniz:")
             yaricap = int(input("Yaricap: "))
             cevre = hesapla_daire_cevre(yaricap)
             alan = hesapla_daire_alan(yaricap)
-            # print(f"Dairenin cevresi {cevre}\nDairenin alani: {alan}")
+            # print(form"Dairenin cevresi {cevre}\nDairenin alani: {alan}")
         case _:
             print("Hatali giris")
 

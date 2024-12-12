@@ -1,22 +1,17 @@
+from PyQt5.QtWidgets import QMainWindow
+from ui.form.dashboard import Ui_dashboard_window as Ui_dashboard_window
+from ui.controller.DbManager import DBManager
 
-import pymongo as m
-from PyQt5.QtWidgets import QApplication, QMainWindow
-import sys
-from ui.form.dashboard import Ui_MainWindow as ui_dashboard
-
-class MainWindow(QMainWindow, ui_dashboard):
+class MainWindow(QMainWindow, Ui_dashboard_window):
 	def __init__(self, main_controller):
 		super().__init__()
 		self.setupUi(self)
 		# self.pushButton.clicked.connect(self.onClicked)
-		self.pushButton.clicked.connect(self.on_clicked_login)
+		self.login_btn.clicked.connect(self.on_clicked_login)
 
 		self.main_controller = main_controller
 
-		#mongo
-		self.client = m.MongoClient("mongodb://localhost:27017")
-		self.db = self.client["test"]
-		self.user_collection = self.db["user"]
+		self.db = DBManager()
 
 	def on_clicked_login(self):
 		self.hide()
@@ -30,8 +25,3 @@ class MainWindow(QMainWindow, ui_dashboard):
 
 
 
-# if __name__ == '__main__':
-# 	app = QApplication(sys.argv)
-# 	window = MainWindow()
-# 	window.show()
-# 	sys.exit(app.exec_())

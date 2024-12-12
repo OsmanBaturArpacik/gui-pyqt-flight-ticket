@@ -9,42 +9,28 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 		super().__init__()
 		self.setupUi(self)
 		self.pushButton.clicked.connect(self.onClicked)
+		#mongo
+		self.client = m.MongoClient("mongodb://localhost:27017")
+		self.db = self.client["test"]
+		self.user_collection = self.db["user"]
 
 	def onClicked(self):
 		email = self.lineEdit.text()
 		password = self.lineEdit_2.text()
-		check_user(email, password)
+		user = self.user_collection.find({"email": email, "password": password})
+		print(user)
 		print("aaaaaa")
+
 
 db = None
 user_collection = None
 
-def check_user(email, password):
-	global user_collection
-	user = user_collection.find({"email": email, "password": password})
-	print(user)
-
-
-
-def connect_db():
-	global db
-	global user_collection
-	myClient = m.MongoClient("mongodb://localhost:27017")
-	print(myClient.list_database_names())
-	dblist = myClient.list_database_names()
-	if "test" in dblist:
-		print("exist")
-
-	db = myClient["test"]
-	user_collection = db["user"]
-	print(db.list_collection_names())
 
 
 
 
 
 if __name__ == '__main__':
-	connect_db()
 	app = QApplication(sys.argv)
 	window = MainWindow()
 	window.show()

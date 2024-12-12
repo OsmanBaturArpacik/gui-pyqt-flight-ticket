@@ -1,18 +1,27 @@
-import pymongo as m
-from PyQt5.QtWidgets import QApplication, QMainWindow
-import sys
-from ui.form.login import Ui_MainWindow as ui_login
+from PyQt5.QtWidgets import QMainWindow
+from ui.form.login import Ui_login_window as Ui_login_window
+from ui.controller.DbManager import DBManager
 
-
-class MainWindow(QMainWindow, ui_login):
+class MainWindow(QMainWindow, Ui_login_window):
     def __init__(self, main_controller):
         super().__init__()
         self.setupUi(self)
 
-        self.maincontroller = main_controller
+        self.main_controller = main_controller
 
-        # mongo
-        self.client = m.MongoClient("mongodb://localhost:27017")
-        self.db = self.client["test"]
-        self.user_collection = self.db["user"]
+        self.db = DBManager.connect()
 
+        self.login_btn.clicked.connect(self.on_clicked_login)
+
+
+    def on_clicked_login(self):
+        email = self.email_ln.text()
+        password = self.password_ln.text()
+        user = self.db.find({"email": email, "password": password})
+        if user is not None:
+            self.hide()
+            self.main_controller.show_dashboard()
+
+        else:
+            pass
+            # popup

@@ -14,7 +14,7 @@ if __name__ == '__main__':
         x = int(input("sayi giriniz (Cikis icin \"0\"):"))
         toplam += x
 
-    print(f"TOPLAM: {toplam}")
+    print(form"TOPLAM: {toplam}")
 """
 """
 if __name__ == '__main__':
@@ -23,7 +23,7 @@ if __name__ == '__main__':
     while parola != x:
         x = str(input("Hatali giris yaptiniz. Parola giriniz: "))
 
-    print(f"Giris yaptiniz.")
+    print(form"Giris yaptiniz.")
 """
 
 """
@@ -42,7 +42,7 @@ if __name__ == '__main__':
             print("Kazandiniz")
             hak-=1
             break
-        print(f"Tahmin hakkiniz {hak}")
+        print(form"Tahmin hakkiniz {hak}")
         x = int(input("Hatali tahmin yaptiniz Sayi giriniz: "))
         hak-=1
 
