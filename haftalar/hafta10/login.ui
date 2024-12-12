@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_4">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0">
       <property name="spacing">
        <number>20</number>
       </property>
@@ -163,6 +163,22 @@
           </property>
           <property name="echoMode">
            <enum>QLineEdit::Password</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Giriş Yap</string>
           </property>
          </widget>
         </item>
