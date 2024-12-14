@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QMainWindow
-from ui.form.login import Ui_login_window as Ui_login_window
+from ui.form.login import Ui_login_window
 from ui.controller.DbManager import DBManager
 
 class MainWindow(QMainWindow, Ui_login_window):
@@ -9,7 +9,8 @@ class MainWindow(QMainWindow, Ui_login_window):
 
         self.main_controller = main_controller
 
-        self.db = DBManager.connect()
+        self.db = DBManager
+        self.db.connect()
 
         self.login_btn.clicked.connect(self.on_clicked_login)
 
@@ -17,11 +18,16 @@ class MainWindow(QMainWindow, Ui_login_window):
     def on_clicked_login(self):
         email = self.email_ln.text()
         password = self.password_ln.text()
-        user = self.db.find({"email": email, "password": password})
-        if user is not None:
-            self.hide()
-            self.main_controller.show_dashboard()
 
+        self.email_ln.clear()
+        self.password_ln.clear()
+
+        user = self.db._user_collection.find_one({"email": email, "password": password})
+
+        if user is not None:
+            self.main_controller.create_user(email, user["name"])
+            self.hide()
+            self.main_controller.show_logged_in_dashboard()
         else:
             pass
             # popup

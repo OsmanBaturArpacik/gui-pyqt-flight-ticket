@@ -5,6 +5,8 @@ class DBManager:
     _client = None
     _db = None
     _user_collection = None
+    _ticket_collection = None
+    _flight_collection = None
 
     @classmethod
     def connect(cls):

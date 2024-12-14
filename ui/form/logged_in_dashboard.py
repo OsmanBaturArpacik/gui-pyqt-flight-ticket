@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 
 # Form implementation generated from reading ui file 'logged_in_dashboard.ui'
 #
@@ -11,7 +12,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
+class Ui_logged_in_dashboard_window(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1200, 600)
@@ -44,7 +45,8 @@ class Ui_MainWindow(object):
         font.setPointSize(8)
         self.label_18.setFont(font)
         self.label_18.setText("")
-        self.label_18.setPixmap(QtGui.QPixmap("login-user.png"))
+        image_path = os.path.join(os.getcwd(), 'images', 'login-user.png')
+        self.label_18.setPixmap(QtGui.QPixmap(image_path))
         self.label_18.setScaledContents(True)
         self.label_18.setObjectName("label_18")
         self.verticalLayout_18.addWidget(self.label_18)
@@ -422,7 +424,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_logged_in_dashboard_window()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
