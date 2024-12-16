@@ -28,7 +28,7 @@ class MainWindow(QMainWindow, Ui_login_window):
         if user is not None:
             self.main_controller.current_user = UserModel(email, user["name"])
             self.hide()
-            self.main_controller.show_logged_in_dashboard()
+            self.main_controller.show_dashboard()
         else:
             pass
             # popup

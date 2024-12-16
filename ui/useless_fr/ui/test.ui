@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>dashboard_window</class>
+ <widget class="QMainWindow" name="dashboard_window">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -330,6 +330,25 @@
             <property name="topMargin">
              <number>5</number>
             </property>
+            <item>
+             <widget class="QPushButton" name="login_btn">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Giriş Yap</string>
+              </property>
+             </widget>
+            </item>
             <item>
              <widget class="QPushButton" name="logout_btn">
               <property name="sizePolicy">

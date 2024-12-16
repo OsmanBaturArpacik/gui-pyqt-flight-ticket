@@ -16,18 +16,7 @@ class MainWindow(QMainWindow, Ui_ticket_info_window):
 
     def on_clicked_continue(self):
         self.hide()
-        user = self.main_controller.current_user
-
-        if user is not None:
-            self.main_controller.show_logged_in_dashboard()
-        else:
-            self.main_controller.show_dashboard()
-
-
-    def on_clicked_check_pnr(self):
-        self.hide()
-        self.main_controller.show_ticket()
-
+        self.main_controller.show_dashboard()
 
     def load_data(self):
         ticket = self.main_controller.current_ticket
