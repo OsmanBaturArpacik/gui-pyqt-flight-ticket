@@ -16,22 +16,29 @@ class MainWindow(QMainWindow, Ui_ticket_info_window):
 
     def on_clicked_continue(self):
         self.hide()
-        user = self.get_current_user()
+        user = self.main_controller.current_user
 
         if user is not None:
             self.main_controller.show_logged_in_dashboard()
         else:
             self.main_controller.show_dashboard()
 
-        # self.main_controller.show_login()
-        # user içi boş ise dashboard dön
-
-    def is_pnr_exist(self,pnr):
-        pnr = pnr.strip()
-        pnr = pnr.upper()
-        ticket_info = self.db._ticket_collection.find_one({"pnr": pnr})
-        return ticket_info
 
     def on_clicked_check_pnr(self):
         self.hide()
         self.main_controller.show_ticket()
+
+
+    def load_data(self):
+        ticket = self.main_controller.current_ticket
+        passenger = ticket.passenger_details
+        if ticket is not None:
+            self.name_ln.setText(passenger.name)
+            self.surname_ln.setText(passenger.surname)
+            self.email_ln.setText(passenger.email)
+            self.age_ln.setText(str(passenger.age))
+            self.gender_cmbx.setCurrentText(passenger.gender)
+            self.seat_num_ln.setText(passenger.seat)
+
+            # PNR bilgisi
+            self.pnr_num_ln.setText(ticket.pnr)

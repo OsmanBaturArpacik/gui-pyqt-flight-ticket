@@ -4,3 +4,5 @@ class UserModel:
         self.email = email
         self.name = name
 
+    def __str__(self):
+        return f"UserModel(name='{self.name}', email='{self.email}')"

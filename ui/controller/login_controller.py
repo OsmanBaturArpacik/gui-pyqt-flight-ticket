@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QMainWindow
 from ui.form.login import Ui_login_window
 from ui.controller.DbManager import DBManager
+from ui.model.user_model import UserModel
 
 class MainWindow(QMainWindow, Ui_login_window):
     def __init__(self, main_controller):
@@ -25,7 +26,7 @@ class MainWindow(QMainWindow, Ui_login_window):
         user = self.db._user_collection.find_one({"email": email, "password": password})
 
         if user is not None:
-            self.main_controller.create_user(email, user["name"])
+            self.main_controller.current_user = UserModel(email, user["name"])
             self.hide()
             self.main_controller.show_logged_in_dashboard()
         else:

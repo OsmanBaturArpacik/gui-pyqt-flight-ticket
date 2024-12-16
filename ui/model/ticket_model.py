@@ -14,23 +14,30 @@ class PassengerDetails:
 class TicketModel:
     def __init__(
         self,
-        _id: str,
+        id: str,
         user_id: str,
         flight_id: str,
         pnr: str,
         booking_date: str,
         status: str,
-        passenger_details: List[dict]
+        passenger_details: dict
     ):
-        self._id = _id
+        self.id = id
         self.user_id = user_id
         self.flight_id = flight_id
         self.pnr = pnr
         self.booking_date = booking_date
         self.status = status
-        self.passenger_details = [PassengerDetails(**details) for details in passenger_details]
+        self.passenger_details = PassengerDetails(
+            name=passenger_details["name"],
+            surname=passenger_details["surname"],
+            email=passenger_details["email"],
+            age=passenger_details["age"],
+            gender=passenger_details["gender"],
+            seat=passenger_details["seat"]
+        )
+
 
     def __str__(self):
-        passenger_info = ", ".join([f"{p.name} {p.surname}" for p in self.passenger_details])
-        return f"TicketModel(pnr={self.pnr}, status={self.status}, passengers=[{passenger_info}])"
-
+        passenger_info = f"{self.passenger_details.name} {self.passenger_details.surname}"
+        return f"TicketModel(pnr={self.pnr}, status={self.status}, passenger={passenger_info})"

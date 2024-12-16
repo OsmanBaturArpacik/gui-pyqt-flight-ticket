@@ -4,6 +4,7 @@ from ui.controller.login_controller import MainWindow as login_controller
 from ui.controller.logged_in_dashboard_controller import MainWindow as logged_in_dashboard_controller
 from ui.controller.ticket_info_controller import MainWindow as ticket_info_controller
 from ui.model.user_model import UserModel
+from ui.model.ticket_model import TicketModel
 
 class MainController:
     def __init__(self):
@@ -19,6 +20,7 @@ class MainController:
 
         # model initialize
         self.current_user = None
+        self.current_ticket = None
 
 
     # show methods
@@ -29,20 +31,16 @@ class MainController:
         self.dashboard_controller.show()
 
     def show_logged_in_dashboard(self):
-        self.logged_in_dashboard_controller.initialize_nick()
+        self.logged_in_dashboard_controller.load_data()
         self.logged_in_dashboard_controller.show()
 
     def show_ticket_info(self):
+        self.ticket_info_controller.load_data()
         self.ticket_info_controller.show()
 
+
+
     # model methods
-    def create_user(self, email, name):
-        self.current_user = UserModel(email, name)
-
-    def get_current_user(self):
-        return self.current_user
-
-
 
     # run method
     def run(self):
