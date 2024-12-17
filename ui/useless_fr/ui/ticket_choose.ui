@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>ticket_choose_window</class>
+ <widget class="QMainWindow" name="ticket_choose_window">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -9,6 +9,24 @@
     <width>800</width>
     <height>600</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -133,7 +151,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="5" column="2">
-         <widget class="QCheckBox" name="checkBox_19">
+         <widget class="QCheckBox" name="checkbox_b4">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -163,7 +181,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="5" column="7">
-         <widget class="QCheckBox" name="checkBox_34">
+         <widget class="QCheckBox" name="checkbox_f4">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -220,7 +238,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="5" column="6">
-         <widget class="QCheckBox" name="checkBox_33">
+         <widget class="QCheckBox" name="checkbox_e4">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -250,7 +268,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="2" column="3">
-         <widget class="QCheckBox" name="checkBox_24">
+         <widget class="QCheckBox" name="checkbox_c2">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -358,7 +376,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="1" column="5">
-         <widget class="QCheckBox" name="checkBox_23">
+         <widget class="QCheckBox" name="checkbox_d1">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -676,7 +694,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="5" column="5">
-         <widget class="QCheckBox" name="checkBox_32">
+         <widget class="QCheckBox" name="checkbox_d4">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -706,7 +724,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="7" column="3">
-         <widget class="QCheckBox" name="checkBox_38">
+         <widget class="QCheckBox" name="checkbox_c6">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -822,7 +840,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="7" column="2">
-         <widget class="QCheckBox" name="checkBox_7">
+         <widget class="QCheckBox" name="checkbox_b6">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -932,7 +950,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="6" column="3">
-         <widget class="QCheckBox" name="checkBox_36">
+         <widget class="QCheckBox" name="checkbox_c5">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -1080,7 +1098,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="2" column="7">
-         <widget class="QCheckBox" name="checkBox_28">
+         <widget class="QCheckBox" name="checkbox_f2">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -1158,7 +1176,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="5" column="3">
-         <widget class="QCheckBox" name="checkBox_30">
+         <widget class="QCheckBox" name="checkbox_c4">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -1252,7 +1270,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="1" column="6">
-         <widget class="QCheckBox" name="checkBox_22">
+         <widget class="QCheckBox" name="checkbox_e1">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -1282,7 +1300,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="6" column="2">
-         <widget class="QCheckBox" name="checkBox_20">
+         <widget class="QCheckBox" name="checkbox_b5">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -1342,7 +1360,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="1" column="7">
-         <widget class="QCheckBox" name="checkBox_2">
+         <widget class="QCheckBox" name="checkbox_f1">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -1436,7 +1454,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="3" column="7">
-         <widget class="QCheckBox" name="checkBox_54">
+         <widget class="QCheckBox" name="checkbox_f3">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -1466,7 +1484,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="7" column="5">
-         <widget class="QCheckBox" name="checkBox_44">
+         <widget class="QCheckBox" name="checkbox_d6">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -1550,7 +1568,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="7" column="7">
-         <widget class="QCheckBox" name="checkBox_46">
+         <widget class="QCheckBox" name="checkbox_f6">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -1604,7 +1622,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="3" column="6">
-         <widget class="QCheckBox" name="checkBox_53">
+         <widget class="QCheckBox" name="checkbox_e3">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -1658,7 +1676,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="2" column="6">
-         <widget class="QCheckBox" name="checkBox_27">
+         <widget class="QCheckBox" name="checkbox_e2">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -1688,7 +1706,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="6" column="6">
-         <widget class="QCheckBox" name="checkBox_41">
+         <widget class="QCheckBox" name="checkbox_e5">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -1748,7 +1766,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="3" column="5">
-         <widget class="QCheckBox" name="checkBox_52">
+         <widget class="QCheckBox" name="checkbox_d3">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -1778,7 +1796,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="1" column="3">
-         <widget class="QCheckBox" name="checkBox">
+         <widget class="QCheckBox" name="checkbox_c1">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -1808,7 +1826,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="2" column="5">
-         <widget class="QCheckBox" name="checkBox_26">
+         <widget class="QCheckBox" name="checkbox_d2">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -1868,7 +1886,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="7" column="6">
-         <widget class="QCheckBox" name="checkBox_45">
+         <widget class="QCheckBox" name="checkbox_e6">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -1898,7 +1916,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="6" column="7">
-         <widget class="QCheckBox" name="checkBox_42">
+         <widget class="QCheckBox" name="checkbox_f5">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -1928,7 +1946,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="3" column="3">
-         <widget class="QCheckBox" name="checkBox_50">
+         <widget class="QCheckBox" name="checkbox_c3">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -2036,7 +2054,7 @@ border: 1px solid #000;
          </widget>
         </item>
         <item row="6" column="5">
-         <widget class="QCheckBox" name="checkBox_40">
+         <widget class="QCheckBox" name="checkbox_d5">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -2413,7 +2431,7 @@ border: 1px solid #000;
            <number>5</number>
           </property>
           <item>
-           <widget class="QLineEdit" name="lineEdit_3">
+           <widget class="QLineEdit" name="name_ln">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -2428,7 +2446,7 @@ border: 1px solid #000;
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_2">
+           <widget class="QLineEdit" name="surname_ln">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -2443,7 +2461,7 @@ border: 1px solid #000;
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit">
+           <widget class="QLineEdit" name="email_ln">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -2563,7 +2581,7 @@ border: 1px solid #000;
            <number>5</number>
           </property>
           <item>
-           <widget class="QLineEdit" name="lineEdit_4">
+           <widget class="QLineEdit" name="age_ln">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -2578,7 +2596,7 @@ border: 1px solid #000;
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox">
+           <widget class="QComboBox" name="gender_cmbx">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -2603,7 +2621,10 @@ border: 1px solid #000;
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_5">
+           <widget class="QLineEdit" name="seat_num_ln">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -2618,7 +2639,7 @@ border: 1px solid #000;
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="buy_ticket_btn">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>

@@ -532,17 +532,17 @@
               </property>
               <item>
                <property name="text">
+                <string>Ankara</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
                 <string>İstanbul (Avrupa)</string>
                </property>
               </item>
               <item>
                <property name="text">
                 <string>İstanbul (Anadolu)</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Ankara</string>
                </property>
               </item>
               <item>

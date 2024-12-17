@@ -19,16 +19,23 @@ class MainWindow(QMainWindow, Ui_ticket_list_window):
         self.flight_list = None
 
     def on_clicked_continue(self):
-        self.hide()
-        self.main_controller.show_dashboard()
-    #  TODO:   choose ticket sayfasına git bilet seç
+        if self.main_controller.dashboard_controller.auth is not False:
+            self.hide()
+            self.main_controller.show_ticket_choose()
+        else:
+            print(" hesap giris yap popup")
+            self.hide()
+            self.main_controller.show_login()
+    #         login sonrası yönlendireceksinde nasıl olacak allah bilir
 
     def row_selected(self, row, column):
         row_data = []
         for col in range(self.tableWidget.columnCount()):
             item = self.tableWidget.item(row, col)
             row_data.append(item.text() if item else "")
-        print(f"Seçilen Satır Verileri: {row_data}")
+
+        # print(f"Seçilen Satır Verileri: {row_data}")/
+
         self.company_ln.setText(row_data[0])
         self.from_ln.setText(row_data[1])
         self.destination_ln.setText(row_data[2])

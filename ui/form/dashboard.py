@@ -420,9 +420,9 @@ class Ui_dashboard_window(object):
         self.from_cmbx.setItemText(3, _translate("dashboard_window", "İzmir"))
         self.from_cmbx.setItemText(4, _translate("dashboard_window", "Kütahya"))
         self.label_6.setText(_translate("dashboard_window", "Nereye?"))
-        self.to_cmbx.setItemText(0, _translate("dashboard_window", "İstanbul (Avrupa)"))
-        self.to_cmbx.setItemText(1, _translate("dashboard_window", "İstanbul (Anadolu)"))
-        self.to_cmbx.setItemText(2, _translate("dashboard_window", "Ankara"))
+        self.to_cmbx.setItemText(0, _translate("dashboard_window", "Ankara"))
+        self.to_cmbx.setItemText(1, _translate("dashboard_window", "İstanbul (Avrupa)"))
+        self.to_cmbx.setItemText(2, _translate("dashboard_window", "İstanbul (Anadolu)"))
         self.to_cmbx.setItemText(3, _translate("dashboard_window", "İzmir"))
         self.to_cmbx.setItemText(4, _translate("dashboard_window", "Kütahya"))
         self.label_4.setText(_translate("dashboard_window", "Gidiş Tarihi"))
@@ -440,6 +440,12 @@ class Ui_dashboard_window(object):
         date = date.toString("dd/MM/yyyy")
         return date
 
+    def res(self):
+        _translate = QtCore.QCoreApplication.translate
+        self.from_cmbx.setCurrentText(_translate("dashboard_window", "İstanbul (Avrupa)"))
+        self.to_cmbx.setCurrentText(_translate("dashboard_window", "Ankara"))
+        self.go_date.setDateTime(QtCore.QDateTime(QtCore.QDate(2024, 1, 1), QtCore.QTime(0, 0, 0)))
+        self.return_date.setDateTime(QtCore.QDateTime(QtCore.QDate(2024, 1, 1), QtCore.QTime(0, 0, 0)))
 
 if __name__ == "__main__":
     import sys

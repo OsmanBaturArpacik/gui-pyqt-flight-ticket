@@ -3,6 +3,7 @@ from ui.controller.dashboard_controller import MainWindow as dashboard_controlle
 from ui.controller.login_controller import MainWindow as login_controller
 from ui.controller.ticket_info_controller import MainWindow as ticket_info_controller
 from ui.controller.ticket_list_controller import MainWindow as ticket_list_controller
+from ui.controller.ticket_choose_controller import MainWindow as ticket_choose_controller
 
 class MainController:
     def __init__(self):
@@ -13,6 +14,7 @@ class MainController:
         self.dashboard_controller = dashboard_controller(self)
         self.ticket_info_controller = ticket_info_controller(self)
         self.ticket_list_controller = ticket_list_controller(self)
+        self.ticket_choose_controller = ticket_choose_controller(self)
 
     # show methods
     def show_login(self):
@@ -29,6 +31,9 @@ class MainController:
     def show_ticket_list(self):
         self.ticket_list_controller.load_data()
         self.ticket_list_controller.show()
+
+    def show_ticket_choose(self):
+        self.ticket_choose_controller.show()
 
     # run method
     def run(self):

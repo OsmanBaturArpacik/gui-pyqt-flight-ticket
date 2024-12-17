@@ -20,8 +20,7 @@ class MainWindow(QMainWindow, Ui_login_window):
         email = self.email_ln.text()
         password = self.password_ln.text()
 
-        self.email_ln.clear()
-        self.password_ln.clear()
+        self.res()
 
         user = self.db._user_collection.find_one({"email": email, "password": password})
 

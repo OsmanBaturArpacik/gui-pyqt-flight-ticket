@@ -138,6 +138,9 @@ class Ui_login_window(object):
         self.label_2.setText(_translate("login_window", "Password"))
         self.login_btn.setText(_translate("login_window", "Giriş Yap"))
 
+    def res(self):
+        self.email_ln.clear()
+        self.password_ln.clear()
 
 if __name__ == "__main__":
     import sys

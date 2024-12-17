@@ -1,4 +1,3 @@
-from PyQt5.QtCore import QDate
 from PyQt5.QtWidgets import QMainWindow
 from ui.form.dashboard import Ui_dashboard_window
 from ui.controller.DbManager import DBManager
@@ -75,16 +74,7 @@ class MainWindow(QMainWindow, Ui_dashboard_window):
 		destination = self.to_cmbx.currentText()
 		departure_date = self.get_date(self.go_date)
 		return_date = self.get_date(self.go_date)
-
-		# departure_date = self.go_date.text()
-		# departure_date = QDate.fromString(departure_date, "d/M/yyyy")
-		# departure_date = departure_date.toString("dd/MM/yyyy")
-		#
-		# return_date = self.return_date.text()
-		# return_date = QDate.fromString(return_date, "d/M/yyyy")
-		# return_date = return_date.toString("dd/MM/yyyy")
-
-		print(origin, destination, departure_date, return_date)
+		# print(origin, destination, departure_date, return_date)
 
 
 		query = {
@@ -95,24 +85,15 @@ class MainWindow(QMainWindow, Ui_dashboard_window):
 
 		flights = list()
 		for flight in self.db._flight_collection.find(query):
-			print(flight)
+			# print(flight)
 			flights.append(flight)
-
-		self.main_controller.ticket_list_controller.flight_list = flights
-		self.hide()
-		self.main_controller.show_ticket_list()
-		# empty check
-		# pass
-		# query = {
-		# 	"from": origin,
-		# 	"to": destination,
-		# 	"departure_date": {"$regex": f"^{return_date}", "$options": "i"},
-		# }
-		#
-		# for flight in self.db._flight_collection.find(query):
-		# 	print(flight)
-	# 		ToDo: ticket ekranina gideceğiz, oradan ticket seçme ekranına gideceğiz, oradanda ticket_infoya sonra bitti
-
+		self.res()
+		if len(flights) != 0:
+			self.main_controller.ticket_list_controller.flight_list = flights
+			self.hide()
+			self.main_controller.show_ticket_list()
+		else:
+			print("bulunamadi pop up")
 
 
 
