@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 
-# Form implementation generated from reading ui file 'test.ui'
+# Form implementation generated from reading ui file 'dashboard.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -10,6 +10,7 @@ import os
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import QDate
 
 
 class Ui_dashboard_window(object):
@@ -432,6 +433,12 @@ class Ui_dashboard_window(object):
         self.label_2.setText(_translate("dashboard_window", "PNR Numarası Giriniz:"))
         self.pnr_ln.setPlaceholderText(_translate("dashboard_window", "PNR GİRİNİZ: PC4175"))
         self.search_pnr_btn.setText(_translate("dashboard_window", "Sorgula"))
+
+    def get_date(self, date_obj):
+        date = date_obj.text()
+        date = QDate.fromString(date, "d/M/yyyy")
+        date = date.toString("dd/MM/yyyy")
+        return date
 
 
 if __name__ == "__main__":
