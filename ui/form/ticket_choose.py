@@ -1461,6 +1461,17 @@ class Ui_ticket_choose_window(object):
         self.gender_cmbx.setItemText(1, _translate("ticket_choose_window", "Kadın"))
         self.buy_ticket_btn.setText(_translate("ticket_choose_window", "Bileti Al"))
 
+    # Clear all seat selections and reset the UI.
+    def clear_selections(self):
+        for seat_row in range(1, 7):  # Rows 1 to 6
+            for seat_col in ["a", "b", "c", "d", "e", "f"]:  # Columns A to F
+                checkbox_name = f"checkbox_{seat_col}{seat_row}"
+                if hasattr(self, checkbox_name):
+                    checkbox = getattr(self, checkbox_name)
+                    if isinstance(checkbox, QtWidgets.QCheckBox):
+                        checkbox.setDisabled(False)
+                        checkbox.setText("")
+                        checkbox.setChecked(False)
 
 if __name__ == "__main__":
     import sys

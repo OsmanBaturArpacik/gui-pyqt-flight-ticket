@@ -62,21 +62,15 @@ class MainWindow(QMainWindow, Ui_ticket_choose_window):
             self.db._flight_collection.update_one({"_id": self.main_controller.current_flight.id},{"$set": {"available_seats" : int(available_seats - 1)}})
 
             self.hide()
+            self.clear_selections()
             self.main_controller.show_ticket_info()
 
     def on_clicked_any_checkbox(self):
-        """
-        Handle checkbox click events:
-        - If a checkbox is checked, disable all others.
-        - If unchecked, re-enable all except checkboxes with modified text (reserved seats).
-        """
-        # Find the clicked checkbox and check its state
-        clicked_checkbox = self.sender()  # The checkbox that triggered this function
+        clicked_checkbox = self.sender()
 
-        if clicked_checkbox.isChecked():  # Checkbox is checked
-            # Get the seat number for the selected checkbox
-            for seat_row in range(1, 7):  # Rows 1 to 6
-                for seat_col in ["a", "b", "c", "d", "e", "f"]:  # Columns A to F
+        if clicked_checkbox.isChecked():
+            for seat_row in range(1, 7):
+                for seat_col in ["a", "b", "c", "d", "e", "f"]:
                     checkbox_name = f"checkbox_{seat_col}{seat_row}"
                     if hasattr(self, checkbox_name):
                         checkbox = getattr(self, checkbox_name)
@@ -86,67 +80,53 @@ class MainWindow(QMainWindow, Ui_ticket_choose_window):
                             self.seat_num_ln.setText(seat_number)
                             self.disable_other_checkboxes(checkbox_name)
                             return
-        else:  # Checkbox is unchecked
+        else:
             self.reenable_all_checkboxes_except_reserved()
             self.seat_num_ln.clear()
 
     def disable_other_checkboxes(self, selected_checkbox_name):
-        """
-        Disable all checkboxes except the selected one.
-        """
-        for seat_row in range(1, 7):  # Rows 1 to 6
-            for seat_col in ["a", "b", "c", "d", "e", "f"]:  # Columns A to F
+        for seat_row in range(1, 7):
+            for seat_col in ["a", "b", "c", "d", "e", "f"]:
                 checkbox_name = f"checkbox_{seat_col}{seat_row}"
                 if hasattr(self, checkbox_name):
                     checkbox = getattr(self, checkbox_name)
                     if isinstance(checkbox, QCheckBox) and checkbox_name != selected_checkbox_name:
-                        checkbox.setDisabled(True)  # Disable other checkboxes
+                        checkbox.setDisabled(True)
 
     def reenable_all_checkboxes_except_reserved(self):
-        """
-        Re-enable all checkboxes except the ones with modified text (reserved seats).
-        """
-        for seat_row in range(1, 7):  # Rows 1 to 6
-            for seat_col in ["a", "b", "c", "d", "e", "f"]:  # Columns A to F
+        for seat_row in range(1, 7):
+            for seat_col in ["a", "b", "c", "d", "e", "f"]:
                 checkbox_name = f"checkbox_{seat_col}{seat_row}"
                 if hasattr(self, checkbox_name):
                     checkbox = getattr(self, checkbox_name)
                     if isinstance(checkbox, QCheckBox):
-                        # Re-enable only checkboxes that do not have text (reserved seats remain disabled)
                         if checkbox.text() == "":
                             checkbox.setDisabled(False)
-                            
+
     def initial(self):
-        # Tüm checkbox'lara tıklama eventi bağla
-        for seat_row in range(1, 7):  # Rows 1 to 6
-            for seat_col in ["a", "b", "c", "d", "e", "f"]:  # Columns A to F
+        for seat_row in range(1, 7):
+            for seat_col in ["a", "b", "c", "d", "e", "f"]:
                 checkbox_name = f"checkbox_{seat_col}{seat_row}"
                 if hasattr(self, checkbox_name):
                     checkbox = getattr(self, checkbox_name)
                     if isinstance(checkbox, QCheckBox):
                         checkbox.clicked.connect(self.on_clicked_any_checkbox)
+
     def load_data(self):
-        """
-        Load ticket data for a specific flight, disable reserved seats,
-        and mark them with passenger gender initials.
-        """
-        # Fetch reserved tickets for the given flight_id
         id = self.main_controller.current_flight.id
         reserved_tickets = self.db._ticket_collection.find({"flight_id": id})
 
-        # Loop through tickets and process reserved seats
         for ticket in reserved_tickets:
-            seat = ticket["passenger_details"]["seat"]  # e.g., "A1"
-            gender = ticket["passenger_details"]["gender"]  # e.g., "male"
+            seat = ticket["passenger_details"]["seat"]
+            gender = ticket["passenger_details"]["gender"]
             gender_initial = "M" if gender.lower() == "male" else "F"
 
-            # Match checkbox dynamically based on seat name
-            checkbox_name = f"checkbox_{seat.lower()}"  # e.g., "checkbox_a1"
+            checkbox_name = f"checkbox_{seat.lower()}"
 
-            if hasattr(self, checkbox_name):  # Check if checkbox exists in the UI
+            if hasattr(self, checkbox_name):
                 checkbox = getattr(self, checkbox_name)
-                if isinstance(checkbox, QCheckBox):  # Ensure it is a checkbox
-                    checkbox.setDisabled(True)  # Disable the checkbox
-                    checkbox.setText(gender_initial)  # Add gender initial
+                if isinstance(checkbox, QCheckBox):
+                    checkbox.setDisabled(True)
+                    checkbox.setText(gender_initial)
 
             # print(f"Seat {seat} marked as reserved ({gender_initial}).")
