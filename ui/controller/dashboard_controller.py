@@ -26,10 +26,9 @@ class MainWindow(QMainWindow, Ui_dashboard_window):
 
 		self.search_pnr_btn.clicked.connect(self.on_clicked_check_pnr)
 		self.search_ticket_btn.clicked.connect(self.on_clicked_search_ticket)
-		self.auth = False
 
 	def update_ui_on_auth(self):
-		if self.auth is not False:
+		if self.main_controller.auth is not False:
 			self.logout_btn.show()
 			self.login_btn.hide()
 
@@ -41,14 +40,13 @@ class MainWindow(QMainWindow, Ui_dashboard_window):
 			self.left_bar.hide()
 
 	def on_clicked_login(self):
-		self.auth = True
 		self.hide()
 		self.main_controller.show_login()
 
 	def on_clicked_logout(self):
-		self.auth = False
+		self.main_controller.auth = False
 		self.hide()
-		self.main_controller.current_user = UserModel(None, None)
+		self.main_controller.current_user = UserModel(None,None, None)
 		self.main_controller.show_dashboard()
 
 	def load_data(self):

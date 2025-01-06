@@ -9,12 +9,18 @@ class MainController:
     def __init__(self):
         self.app = QApplication([])
 
+        self.current_user = None
+        self.current_ticket = None
+        self.current_flight = None
+        self.auth = False
+
         # controller initialize
         self.login_controller = login_controller(self)
         self.dashboard_controller = dashboard_controller(self)
         self.ticket_info_controller = ticket_info_controller(self)
         self.ticket_list_controller = ticket_list_controller(self)
         self.ticket_choose_controller = ticket_choose_controller(self)
+
 
     # show methods
     def show_login(self):
@@ -33,6 +39,7 @@ class MainController:
         self.ticket_list_controller.show()
 
     def show_ticket_choose(self):
+        self.ticket_choose_controller.load_data()
         self.ticket_choose_controller.show()
 
     # run method

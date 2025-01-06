@@ -14,6 +14,7 @@ class MainWindow(QMainWindow, Ui_login_window):
         self.db.connect()
 
         self.login_btn.clicked.connect(self.on_clicked_login)
+        self.hide_state = False
 
 
     def on_clicked_login(self):
@@ -25,9 +26,14 @@ class MainWindow(QMainWindow, Ui_login_window):
         user = self.db._user_collection.find_one({"email": email, "password": password})
 
         if user is not None:
-            self.main_controller.current_user = UserModel(email, user["name"])
+            self.main_controller.current_user = UserModel(user["_id"],email, user["name"])
+            self.main_controller.auth = True
             self.hide()
-            self.main_controller.show_dashboard()
+            if self.hide_state is not False:
+                self.hide_state = False
+            else:
+                self.main_controller.show_dashboard()
+
         else:
             pass
             # popup
